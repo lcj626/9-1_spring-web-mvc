@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.project.user.model.UserDAO">
+
+    <resultMap id="userResult" type="com.ohgiraffers.project.user.dto.UserDTO">
+        <id property="code" column="USER_NO"/>
+        <result property="email" column="USER_EMAIL"/>
+        <result property="password" column="USER_PASSWORD"/>
+        <result property="nickname" column="USER_NICKNAME"/>
+        <result property="phone" column="USER_PHONE"/>
+        <result property="sns" column="USER_SNS"/>
+        <result property="status" column="USER_STATUS"/>
+        <result property="auth" column="USER_AUTH"/>
+        <result property="registDate" column="USER_REGIST_DATE"/>
+        <result property="updateDate" column="USER_UPDATE_DATE"/>
+        <result property="imageNo" column="PROFILE_IMAGE_NO"/>
+    </resultMap>
+
+    <select id="selectAllUsers" resultMap="userResult">
+        SELECT
+            *
+          FROM TBL_USER
+    </select>
+    
+
+
+
+    <insert id="registUser" parameterType="com.ohgiraffers.project.user.dto.UserDTO">
+        INSERT INTO TBL_USER
+        (
+        USER_NO,
+        USER_EMAIL,
+        USER_PASSWORD,
+        USER_NICKNAME,
+        USER_PHONE,
+        USER_SNS,
+        USER_STATUS,
+        USER_AUTH,
+        USER_REGIST_DATE,
+        USER_UPDATE_DATE,
+        PROFILE_IMAGE_NO
+        )
+        VALUES(
+        #{code},
+        #{email},
+        #{password},
+        #{nickname},
+        #{phone},
+        #{sns},
+        #{status},
+        #{auth},
+        #{registDate},
+        #{updateDate},
+        '1'
+        )
+    </insert>
+
+    <update id="updateUser" parameterType="com.ohgiraffers.project.user.dto.UserDTO">
+        UPDATE TBL_USER
+        SET USER_PASSWORD = #{password}
+        WHERE USER_NO= #{code}
+    </update>
+
+
+
+</mapper>

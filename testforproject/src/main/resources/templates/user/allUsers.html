@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>회원번호</th>
+            <th>이메일</th>
+            <th>비밀번호</th>
+            <th>닉네임</th>
+            <th>연락처</th>
+            <th>SNS</th>
+            <th>상태</th>
+            <th>권한</th>
+            <th>등록일</th>
+            <th>수정일</th>
+            <th>이미지번호 </th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.code}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.nickname}"></td>
+            <td th:text="${user.phone}"></td>
+            <td th:text="${user.sns}"></td>
+            <td th:text="${user.status}"></td>
+            <td th:text="${user.auth}"></td>
+            <td th:text="${user.registDate}"></td>
+            <td th:text="${user.updateDate}"></td>
+            <td th:text="${user.imageNo}"></td>
+        </tr>
+    </table>
+    <button onclick="location.href='/'">인덱스</button>
+</body>
+</html>

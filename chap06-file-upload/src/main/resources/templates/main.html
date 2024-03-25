@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>single File 업로드 하기</h3>
+    <form action="single-file" method="post" enctype="multipart/form-data"> <!--지금 파일 객체를 담아서 전송, form-data:데이터 포매팅 multipart:데이터 객체 전송 body에 심어서 보내겠다-->
+        파일 : <input type="file" name="singleFile"/> <br>
+        파일 설명 : <input type="text" name="singleFileDescription"/> <br>
+        <button>전송</button>
+    </form>
+
+    <h3>MultiFile 업로드</h3>
+    <form action="multi-file" method="post" enctype="multipart/form-data">
+        파일 : <input type="file" name="multipartFiles" multiple /> <br>
+        파일 설명 : <input type="text" name="multiFileDescription" /> <br>
+        <button>전송</button>
+    </form>
+</body>
+</html>
